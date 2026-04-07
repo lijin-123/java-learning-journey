@@ -14,16 +14,40 @@ public class NodelListTest {
         Node hero2 = new Node("豹女", 999);
         Node hero3 = new Node("男枪", 999);
         Node hero4 = new Node("死歌", 22);
+        Node hero5 = new Node("盖伦", 342);
         NodeList list = new NodeList();
         list.add(hero);
         list.add(hero2);
         list.add(hero3);
         list.add(hero4);
+        list.add(hero5);
         list.delete(hero2);
         list.display();
+        //求有效节点个数
+         //System.out.println(getLegth(NodeList.gethead()));
 
     }
+
+    //或许到单链表的有效数据,带头结点的链表,需要不统计头结点
+    public static int getLegth(Node head) {
+        Node temp = head.next;
+        int length = 0;
+        while (true) {
+            if (head.next == null) {
+                System.out.println("空");
+                break;
+            } else if (temp.next != null) {
+                length++;
+                temp = temp.next;
+            } else {
+                break;
+
+            }
+        }
+        return length;
+    }
 }
+
 
 class Node {
 
@@ -64,8 +88,11 @@ class Node {
 
 //链表的管理
 class NodeList {
-    Node head = new Node("", 0);
-
+   private Node head = new Node("", 0);
+ public Node getHead() {
+    return head;
+ }
+ public void setHeaad(Node head) {}
     //添加节点
     public void add(Node node) {
         Node temp = head;
@@ -97,6 +124,7 @@ class NodeList {
 
     //修改名字
     public void update(Node node) {
+
         Node temp = head;
         boolean flag = false;
         while (true) {
@@ -146,6 +174,29 @@ class NodeList {
             temp = temp.next;
         }
     }
+
+    //倒序输出链表,方式是先将链表的NODE压入栈,利用栈先进后出的原则,输出实现倒序
+    /*
+    public static void reversePrint(Node head) {
+    if(head.next == null) {
+        return;//空链表，不能打印
+    }
+    //创建要给一个栈，将各个节点压入栈
+    Stack<Node> stack = new Stack<Node>();
+    HeroNode cur = head.next;
+    //将链表的所有节点压入栈
+    while(cur != null) {
+        stack.push(cur);
+        cur = cur.next; //cur后移，这样就可以压入下一个节点
+    }
+    //将栈中的节点进行打印,pop 出栈
+    while (stack.size() > 0) {
+        System.out.println(stack.pop()); //stack的特点是先进
+    }
+
+
+}
+     */
 }
 
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @Create 2026/4/3 17:14
  * @Version 1.0
  */
-public class test {
+public class gameNumber {
     public static void main(String[] args) {
         //生成随机数[66,90]的整数
         int a = (int) ((1 + (Math.random()) * 99) + 1);

@@ -101,7 +101,8 @@ Boy boy=new Boy(i);
                 first=first.getNext();
                 helper=helper.getNext();
             }
-            while(true){
+        System.out.println("小孩被数到的顺序是-->");
+        while(true){
                 if(helper==first){
                     break;
                 }else{
@@ -109,27 +110,25 @@ Boy boy=new Boy(i);
                         first=first.getNext();
                         helper=helper.getNext();
                     }
-                    System.out.println(first.getData());
+                    System.out.printf("%d\t",first.getData());
                     first=first.getNext();
                     helper.setNext(first);
                 }
             }
-            System.out.println("最后一个小孩的编号是"+first.getData());
-
-
+        System.out.println();
+        System.out.printf("%d\t",first.getData());
+        System.out.println("最后最幸运的小孩是"+first.getData());
     }
 }
 
-/**
- *
- *
- */
+
 class Boy{
     private int data;
     private Boy next;
 
     public Boy(int data){
         this.data = data;
+        this.next = null;
     }
 
     public int getData() {
